@@ -882,6 +882,6 @@ significant_issue_speech
 
 
 
-app.listen(3002,()=>{
-    console.log("running port 3002");
+app.listen(process.env.PORT|PORT,()=>{
+    console.log(`running port ${PORT}`);
 });
