@@ -3,6 +3,7 @@ const app = express();
 const mysql = require("mysql");
 const cors = require("cors");
 const nodemailer = require('nodemailer');
+const PORT=3001
 
 app.use(cors());
 app.use(express.json());
@@ -882,6 +883,6 @@ significant_issue_speech
 
 
 
-app.listen(process.env.PORT|PORT,()=>{
+app.listen(process.env.PORT||PORT,()=>{
     console.log(`running port ${PORT}`);
 });
