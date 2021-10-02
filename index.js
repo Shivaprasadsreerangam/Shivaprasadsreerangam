@@ -220,7 +220,7 @@ transporter.sendMail(mailOptions, (err, data) => {
    
     console.log(Syllable_Structure);
   
-const callProceudure="call heroku_5fec6c3626a11ee.insert_patient_articulation_details(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
+const callProceudure="call insert_patient_articulation_details(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
 db.query(callProceudure,[patient_id,first_name,middle_name,last_name,Gender,disorder,birthday,Primary_Complaint,user_name,middleName,LastName,RelationShip,
 email,contact_no,'','',doctor,hospital_id,deformity_articulation,deformity,oral_mechanism,oral_mechanism,articulation_assessed,articulation_assessed_1,
 elicit_response,elicit_response,errors_noticed,errors_pattern,errors_pattern_1,Confirmed_Diagnosis,Suspected_Diagnosis,'',PatientSoundDisorderDetails,
@@ -632,7 +632,7 @@ app.post("/insert", (req, res) => {
     const PatientSoundDisorderDetails=req.body.PatientSoundDisorderDetails;
     console.log(hospital_id);
   
-const callProceudure="call heroku_5fec6c3626a11ee.insert_patient_details(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
+const callProceudure="call insert_patient_details(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
 db.query(callProceudure,[patient_id,first_name,middle_name,Gender,disorder,birthday,Primary_Complaint,user_name,middleName,LastName,RelationShip,email,contact_no,'','',doctor,hospital_id,vocal_abuse,vocal_misue,prof_voice_user_level,medical_etiology,neurogenic_disorder,respiratory_disorders,voice_usage,task,grabs,pitch,loudness,quality,resonance,articulation,prosody,instrumental_analysis,instrumental_analysis1,multi_Dimensional_Voice_Profile,praat,aerodynamic,diagnosis_terms,deformity_articulation,deformity,oral_mechanism_1,articulation_assessed_1,elicit_response_1,errors_noticed,errors_noticed_1,diagnosis_con_sus,diagnosis_con_sus_1,Confirmed_Diagnosis,Suspected_Diagnosis,PatientSoundDisorderDetails],(err,result)=>{
          res.send(err);
          console.log(err);
@@ -659,7 +659,7 @@ app.post("/createAccount", (req, res) => {
   
 
 
-const callProceudure="call heroku_5fec6c3626a11ee.create_account(?,?,?,?,?,?,?,?,?,?,?)"
+const callProceudure="call create_account(?,?,?,?,?,?,?,?,?,?,?)"
 db.query(callProceudure,[hospital_id,uName,mName,lName,hName,duration,duration1,disorder,Emaild,Phno,nusers],(err,result)=>{
        res.send(err);
        console.log(err);
@@ -886,3 +886,4 @@ significant_issue_speech
 app.listen(process.env.PORT||PORT,()=>{
     console.log(`running port ${PORT}`);
 });
+
