@@ -659,7 +659,7 @@ app.post("/createAccount", (req, res) => {
   
 console.log("create account Emaild");
 
-const callProceudure="call create_account(?,?,?,?,?,?,?,?,?,?,?)"
+const callProceudure="call create_account(?,?,?,?,?,?,?,?,?,?,?,?)"
 db.query(callProceudure,[hospital_id,uName,mName,lName,hName,duration,duration1,disorder,Emaild,Phno,nusers],(err,result)=>{
        res.send(err);
        console.log(err);
