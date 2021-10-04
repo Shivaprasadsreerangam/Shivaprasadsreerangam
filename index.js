@@ -653,14 +653,15 @@ app.post("/createAccount", (req, res) => {
   const disorder="Voice";
   const Emaild=req.body.Emaild;
   const Phno=req.body.Phno;
+  const pwd=req.body.pwd;
    
 
  
   
 console.log("create account Emaild");
 
-const callProceudure="call create_account(?,?,?,?,?,?,?,?,?,?,?)"
-db.query(callProceudure,[hospital_id,uName,mName,lName,hName,duration,duration1,disorder,Emaild,Phno,nusers],(err,result)=>{
+const callProceudure="call create_account(?,?,?,?,?,?,?,?,?,?,?,?)"
+db.query(callProceudure,[hospital_id,uName,mName,lName,hName,duration,duration1,disorder,Emaild,Phno,nusers,pwd],(err,result)=>{
        res.send(err);
        console.log(err);
        console.log(result);
