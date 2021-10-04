@@ -666,6 +666,31 @@ db.query(callProceudure,[hospital_id,uName,mName,lName,hName,duration,duration1,
        console.log(result);
 
       });
+    
+    	const body="default password for login the product";
+	let transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+          user:'spielthemakers@gmail.com', // TODO: your gmail account
+          pass: 'Spiel@12345' // TODO: your gmail password
+      }
+  });
+  
+  let mailOptions = {
+    from: 'spielthemakers@gmail.com', // TODO: email sender
+    to: email_id, // TODO: email receiver
+    subject: 'Default Password ',
+    text: body.concat(pwd),
+};
+transporter.sendMail(mailOptions, (err, data) => {
+  if (err) {
+      return console.log(err);
+  }
+      
+      return console.log('Email sent!!!');
+
+
+  });
 });
 
 
