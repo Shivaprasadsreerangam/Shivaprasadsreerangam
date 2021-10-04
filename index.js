@@ -679,7 +679,7 @@ db.query(callProceudure,[hospital_id,uName,mName,lName,hName,duration,duration1,
   
   let mailOptions = {
     from: 'spielthemakers@gmail.com', // TODO: email sender
-    to: email_id, // TODO: email receiver
+    to: Emaild, // TODO: email receiver
     subject: 'Default Password ',
     text: body.concat(pwd),
 };
