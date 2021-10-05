@@ -53,12 +53,12 @@ app.post("/doctordetails", (req, res) => {
         console.log(err);
       } else {
         
-        if(result[0].count_1>0) {
-          res.send("Account has been created alredy for this Hospital");
-          console.log(result[0].hospital_name,result[0].count_1);
-        }
+       // if(result[0].count_1>0) {
+          //res.send("Account has been created alredy for this Hospital");
+        //  console.log(result[0].hospital_name,result[0].count_1);
+       // }
         // console.log(result[0].count_1);
-        
+        res.send(result[0].count_1);
       }
     });
   });
