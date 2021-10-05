@@ -668,7 +668,7 @@ db.query(callProceudure,[hospital_id,uName,mName,lName,hName,duration,duration1,
 
       });
     
-    	const body="default password for login the product";
+    	const body="default password for login the product  ";
 	let transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
