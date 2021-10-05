@@ -62,6 +62,22 @@ app.post("/doctordetails", (req, res) => {
       }
     });
   });
+
+app.post("/CheckEmaild", (req, res) => {
+  const Emaild = req.body.Emaild;
+
+  db.query("select count(email_id) count_1 from heroku_5fec6c3626a11ee.spiel_user where upper(email_id)=upper(?)"
+    , [Emaild], (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+
+        res.send(result);
+        // console.log(result[0].count_1);
+
+      }
+    });
+});
   
   app.post("/getpatientdetails", (req, res) => {
     const patient_id=req.body.patient_id;
