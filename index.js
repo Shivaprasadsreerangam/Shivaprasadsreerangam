@@ -157,8 +157,8 @@ app.post("/CheckEmaild", (req, res) => {
 
     const email_id=req.body.uname;
     const pwd=req.body.pwd;
-    const body="Your password has been reset.Please find below details
-                User Name: ";
+    const body="Your password has been reset.Please find below details";
+                body.concat("User Name: ");
 	  body.concat(email_id);
 	  body.concat("default password: ");
 	  
