@@ -157,7 +157,11 @@ app.post("/CheckEmaild", (req, res) => {
 
     const email_id=req.body.uname;
     const pwd=req.body.pwd;
-    const body="Password has been reset";
+    const body="Your password has been reset.Please find below details
+                User Name: ";
+	  body.concat(email_id);
+	  body.concat("default password: ");
+	  
     db.query("update heroku_5fec6c3626a11ee.spiel_user set default_password='Y',invalid_logins=0, pwd=?  where email_id =?",[pwd,email_id], (err, result) => {
       if (err) {
         console.log(err);
