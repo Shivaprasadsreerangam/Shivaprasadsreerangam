@@ -96,7 +96,7 @@ app.post("/CheckEmaild", (req, res) => {
     const user_id=req.body.user_id;
    
     db.query("select dd.disorder_id,dd.disorder from heroku_5fec6c3626a11ee.disorder_details_assocation da,heroku_5fec6c3626a11ee.disorder_details dd\
-    where dd.disorder_id=da.disorder_id and da.hospital_id=1 and da.customer_id=1;;",[hospital_id,user_id], (err, result) => {
+    where dd.disorder_id=da.disorder_id and da.hospital_id=? and da.customer_id=?;",[hospital_id,user_id], (err, result) => {
       if (err) {
         console.log(err);
       } else {
