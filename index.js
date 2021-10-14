@@ -369,7 +369,7 @@ app.post("/patientdetails_1", (req, res) => {
 
   app.post("/fetchLoginDetails", (req, res) => {
 
-      db.query("select login_id,email_id,hosiptal_id,max(loginTime) latest_login_time,count(login_id) num from heroku_5fec6c3626a11ee.Login_details group by login_id,email_id,hosiptal_id order by latest_login_time desc;", (err, result) => {
+      db.query("select ld.login_id,ld.email_id,ld.hosiptal_id,max(ld.loginTime) latest_login_time,count(ld.login_id) num ,hd.hospital_name from heroku_5fec6c3626a11ee.Login_details ld,heroku_5fec6c3626a11ee.hospital_details  hd where hd.hospital_id=ld.hosiptal_id group by ld.login_id,ld.email_id,ld.hosiptal_id ,hd.hospital_name order by latest_login_time desc;;", (err, result) => {
         if (err) {
           console.log(err);
         } else {
