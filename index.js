@@ -480,7 +480,7 @@ app.post("/patientdetails_1", (req, res) => {
       
           console.log(patient_id);
             db.query("select language_assessment,significant_medical_history,morbid_change,adult_neurogenic_communication_disorder,dementia,right_hemisphere_damage,\
-            alzheimer,parkinsons,dysphagia,apraxia,test_material,test_meterial_file,significant_issue_speech,diagnosis_confirmed_suspected,\
+            alzheimer,parkinsons,dysphagia,apraxia,test_material,test_meterial_file,significant_issue_speech,diagnosis_confirmed_suspected\
             from heroku_5fec6c3626a11ee.patient_adult_language_disorder where patient_id=? and hospital_id=?;)",
             [hospital_id,patient_id] , (err, result) => {
               if (err) {
