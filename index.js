@@ -105,6 +105,20 @@ app.post("/CheckEmaild", (req, res) => {
       }
     });
   });
+app.post("/longtermChildLanguageTherapy", (req, res) => {
+  //const hospital_id = req.body.hospital_id;
+  const patient_id = req.body.patient_id;
+
+  db.query("select goal_for,goal_level,goal_type,start_age,end_age from Child_language_therapy_goals where start_age <= (select TIMESTAMPDIFF(MONTH, patient_dob, now()) from patient_details where patient_id =?)\
+  and end_age >= (select TIMESTAMPDIFF(MONTH, patient_dob, now()) from patient_details where patient_id =?)", [patient_id, patient_id], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+      console.log(result);
+    }
+  });
+});
 
   app.post("/articulationSoundsAges", (req, res) => {
     const hospital_id=req.body.hospital_id;
