@@ -184,6 +184,24 @@ app.post("/fetchPatientDob", (req, res) => {
 });
 
 
+app.post("/fetchShortTermGoals", (req, res) => {
+  //const hospital_id = req.body.hospital_id;
+  const short_term_goal=req.body.short_term_goal
+  const patient_id = req.body.patient_id;
+
+  db.query("select goal_type,goal_for,long_term_goal,short_term_goal,start_age,end_age from Child_language_therapy_goals where goal_type='short' and trunc(short_term_goal)=trunc(?)\
+  and start_age <= (select TIMESTAMPDIFF(MONTH, patient_dob, now()) from patient_details where patient_id =?)\
+  and end_age >= (select TIMESTAMPDIFF(MONTH, patient_dob, now()) from patient_details where patient_id =?)", [short_term_goal,patient_id, patient_id], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+      console.log(result);
+    }
+  });
+});
+
+
   app.post("/articulationSoundsAges", (req, res) => {
     const hospital_id=req.body.hospital_id;
     const dirthdayDate=req.body.dirthdayDate;
