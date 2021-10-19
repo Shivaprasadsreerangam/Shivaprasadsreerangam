@@ -121,6 +121,55 @@ app.post("/playSemanticsLongTerm", (req, res) => {
   });
 });
 
+app.post("/multiPragmaticInteractionLongTerm", (req, res) => {
+  //const hospital_id = req.body.hospital_id;
+  const patient_id = req.body.patient_id;
+
+  db.query("select goal_for,goal_type,long_term_goal,start_age,end_age from Child_language_therapy_goals where TRIM(goal_type)='long' and TRIM(goal_for)=TRIM('Pragmatic interaction')\
+  and start_age <= (select TIMESTAMPDIFF(MONTH, patient_dob, now()) from patient_details where patient_id =?)\
+    and end_age >= (select TIMESTAMPDIFF(MONTH, patient_dob, now()) from patient_details where patient_id =?)", [patient_id, patient_id], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+      console.log(result);
+    }
+  });
+});
+
+app.post("/languageDevelopmentalProgramLongTerm", (req, res) => {
+  //const hospital_id = req.body.hospital_id;
+  const patient_id = req.body.patient_id;
+
+  db.query("select goal_for,goal_type,long_term_goal,start_age,end_age from Child_language_therapy_goals where TRIM(goal_type)='long' and TRIM(goal_for)=TRIM('developmental program')\
+  and start_age <= (select TIMESTAMPDIFF(MONTH, patient_dob, now()) from patient_details where patient_id =?)\
+    and end_age >= (select TIMESTAMPDIFF(MONTH, patient_dob, now()) from patient_details where patient_id =?)", [patient_id, patient_id], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+      console.log(result);
+    }
+  });
+});
+
+app.post("/languageExpressiveLanguageLongTerm", (req, res) => {
+  //const hospital_id = req.body.hospital_id;
+  const patient_id = req.body.patient_id;
+
+  db.query("select goal_for,goal_type,long_term_goal,start_age,end_age from Child_language_therapy_goals where TRIM(goal_type)='long' and TRIM(goal_for)=TRIM('expressive language')\
+  and start_age <= (select TIMESTAMPDIFF(MONTH, patient_dob, now()) from patient_details where patient_id =?)\
+    and end_age >= (select TIMESTAMPDIFF(MONTH, patient_dob, now()) from patient_details where patient_id =?)", [patient_id, patient_id], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+      console.log(result);
+    }
+  });
+});
+
+
   app.post("/articulationSoundsAges", (req, res) => {
     const hospital_id=req.body.hospital_id;
     const dirthdayDate=req.body.dirthdayDate;
