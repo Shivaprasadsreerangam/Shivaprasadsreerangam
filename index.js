@@ -173,7 +173,7 @@ app.post("/fetchPatientDob", (req, res) => {
   //const hospital_id = req.body.hospital_id;
   const patient_id = req.body.patient_id;
 
-  db.query("select patient_dob,TIMESTAMPDIFF(MONTH, patient_dob, now()) from patient_details where patient_id =?)", [patient_id, patient_id], (err, result) => {
+  db.query("select patient_dob,TIMESTAMPDIFF(MONTH, patient_dob, now()) from patient_details where patient_id =?", [patient_id, patient_id], (err, result) => {
     if (err) {
       console.log(err);
     } else {
