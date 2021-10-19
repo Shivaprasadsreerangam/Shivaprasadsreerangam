@@ -189,7 +189,7 @@ app.post("/fetchShortTermGoals", (req, res) => {
   const long_term_goal=req.body.long_term_goal
   const patient_id = req.body.patient_id;
   console.log(long_term_goal);
-  db.query("select goal_type,goal_for,long_term_goal,short_term_goal,start_age,end_age from Child_language_therapy_goals where goal_type='short' and trunc(long_term_goal)=trunc(?)\
+  db.query("select goal_type,goal_for,long_term_goal,short_term_goal,start_age,end_age from Child_language_therapy_goals where goal_type='short' and trim(long_term_goal)=trim(?)\
   and start_age <= (select TIMESTAMPDIFF(MONTH, patient_dob, now()) from patient_details where patient_id =?)\
   and end_age >= (select TIMESTAMPDIFF(MONTH, patient_dob, now()) from patient_details where patient_id =?)", [long_term_goal,patient_id, patient_id], (err, result) => {
     if (err) {
