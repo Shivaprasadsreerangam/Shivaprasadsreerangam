@@ -153,6 +153,7 @@ app.post("/languageDevelopmentalProgramLongTerm", (req, res) => {
   });
 });
 
+
 app.post("/languageExpressiveLanguageLongTerm", (req, res) => {
   //const hospital_id = req.body.hospital_id;
   const patient_id = req.body.patient_id;
@@ -168,6 +169,87 @@ app.post("/languageExpressiveLanguageLongTerm", (req, res) => {
     }
   });
 });
+
+app.post("/languageDevelopmentalProgramLongTermAgeWise", (req, res) => {
+  //const hospital_id = req.body.hospital_id;
+  const patient_update_age = req.body.patient_update_age;
+
+  db.query("select goal_for,goal_type,long_term_goal,start_age,end_age from Child_language_therapy_goals where TRIM(goal_type)='long' and TRIM(goal_for)=TRIM('expressive language')\
+  and start_age <= ?\
+    and end_age >= ?", [patient_update_age, patient_update_age], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+      console.log(result);
+    }
+  });
+});
+
+app.post("/languageDevelopmentalProgramLongTermAgeWise", (req, res) => {
+  //const hospital_id = req.body.hospital_id;
+  const patient_update_age = req.body.patient_update_age;
+
+  db.query("select goal_for,goal_type,long_term_goal,start_age,end_age from Child_language_therapy_goals where TRIM(goal_type)='long' and TRIM(goal_for)=TRIM('expressive language')\
+  and start_age <= ?\
+    and end_age >= ?", [patient_update_age, patient_update_age], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+      console.log(result);
+    }
+  });
+});
+
+app.post("/languageExpressiveLanguageLongTermAgeWise", (req, res) => {
+  //const hospital_id = req.body.hospital_id;
+  const patient_update_age = req.body.patient_update_age;
+
+  db.query("select goal_for,goal_type,long_term_goal,start_age,end_age from Child_language_therapy_goals where TRIM(goal_type)='long' and TRIM(goal_for)=TRIM('expressive language')\
+  and start_age <= ?\
+    and end_age >= ?", [patient_update_age, patient_update_age], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+      console.log(result);
+    }
+  });
+});
+
+app.post("/multiPragmaticInteractionLongTermAgeWise", (req, res) => {
+  //const hospital_id = req.body.hospital_id;
+  const patient_update_age = req.body.patient_update_age;
+
+  db.query("select goal_for,goal_type,long_term_goal,start_age,end_age from Child_language_therapy_goals where TRIM(goal_type)='long' and TRIM(goal_for)=TRIM('Pragmatic interact')\
+  and start_age <= ?\
+    and end_age >= ?", [patient_update_age, patient_update_age], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+      console.log(result);
+    }
+  });
+});
+
+app.post("/multiplaySemanticsLongTermAgeWise", (req, res) => {
+  //const hospital_id = req.body.hospital_id;
+  const patient_update_age = req.body.patient_update_age;
+
+  db.query("select goal_for,goal_type,long_term_goal,start_age,end_age from Child_language_therapy_goals where TRIM(goal_type)='long' and TRIM(goal_for)=TRIM('Play, semantics')\
+  and start_age <= ?\
+    and end_age >= ?", [patient_update_age, patient_update_age], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+      console.log(result);
+    }
+  });
+});
+
 
 app.post("/fetchPatientDob", (req, res) => {
   //const hospital_id = req.body.hospital_id;
