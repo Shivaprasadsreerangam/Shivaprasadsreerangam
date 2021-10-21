@@ -228,7 +228,7 @@ app.post("/multiplaySemanticsLongTermAgeWise", (req, res) => {
   console.log("/multiplaySemanticsLongTermAgeWise");
   db.query("select goal_for,goal_type,long_term_goal,start_age,end_age from Child_language_therapy_goals where TRIM(goal_type)='long' and TRIM(goal_for)=TRIM('Play, semantics')\
   and start_age <= ?\
-    and end_age >= ?,", [patient_update_age, patient_update_age], (err, result) => {
+    and end_age >= ?", [patient_update_age, patient_update_age], (err, result) => {
     if (err) {
       console.log(err);
     } else {
