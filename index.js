@@ -175,7 +175,7 @@ app.post("/languageDevelopmentalProgramLongTermAgeWise", (req, res) => {
   const patient_update_age = req.body.patient_update_age;
   console.log(patient_update_age);
 
-  db.query("select goal_for,goal_type,long_term_goal,start_age,end_age from Child_language_therapy_goals where TRIM(goal_type)='long' and TRIM(goal_for)=TRIM('expressive language')\
+  db.query("select goal_for,goal_type,long_term_goal,start_age,end_age from Child_language_therapy_goals where TRIM(goal_type)='long' and TRIM(goal_for)=TRIM('developmental program')\
   and start_age <= ?\
     and end_age >= ?", [patient_update_age, patient_update_age], (err, result) => {
     if (err) {
@@ -209,7 +209,7 @@ app.post("/multiPragmaticInteractionLongTermAgeWise", (req, res) => {
   //const hospital_id = req.body.hospital_id;
   const patient_update_age = req.body.patient_update_age;
   console.log(patient_update_age);
-  db.query("select goal_for,goal_type,long_term_goal,start_age,end_age from Child_language_therapy_goals where TRIM(goal_type)='long' and TRIM(goal_for)=TRIM('Pragmatic interact')\
+  db.query("select goal_for,goal_type,long_term_goal,start_age,end_age from Child_language_therapy_goals where TRIM(goal_type)='long' and TRIM(goal_for)=TRIM('Pragmatic interaction')\
   and start_age <= ?\
     and end_age >= ?", [patient_update_age, patient_update_age], (err, result) => {
     if (err) {
