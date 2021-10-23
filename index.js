@@ -270,7 +270,31 @@ app.post("/fetchShortTermGoals", (req, res) => {
     }
   });
 });
+app.post("/fetchVoiceShortTermGoals", (req, res) => {
+ 
+  db.query("select distinct short_term_goal_no,short_term_goal from voice_language_therapy_goals;", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+      console.log(result);
 
+    }
+  });
+});
+
+app.post("/fetchFluencyShortTermGoals", (req, res) => {
+ 
+  db.query(" select distinct short_term_goal_no,short_term_goal from fluency_language_therapy_goals;", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+      console.log(result);
+
+    }
+  });
+});
 
   app.post("/articulationSoundsAges", (req, res) => {
     const hospital_id=req.body.hospital_id;
