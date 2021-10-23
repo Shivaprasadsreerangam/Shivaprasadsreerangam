@@ -313,7 +313,7 @@ app.post("/fetchVoiceTherapyGoals", (req, res) => {
 app.post("/fetchFluencyTherapyGoals", (req, res) => {
  
   fluencyShortTermGoal_no=req.body.fluencyShortTermGoal_no;
-  db.query(" select distinct therapy_goal_no,therapy_goal from voice_language_therapy_goals where short_term_goal_no=?;", [fluencyShortTermGoal_no],(err, result) => {
+  db.query(" select distinct therapy_goal_no,therapy_goal from fluency_language_therapy_goals where short_term_goal_no=?;", [fluencyShortTermGoal_no],(err, result) => {
     if (err) {
       console.log(err);
     } else {
