@@ -296,6 +296,34 @@ app.post("/fetchFluencyShortTermGoals", (req, res) => {
   });
 });
 
+app.post("/fetchVoiceTherapyGoals", (req, res) => {
+  voiceShortTermGoal_no=req.body.voiceShortTermGoal_no;
+ 
+  db.query("select distinct therapy_goal_no,therapy_goal from voice_language_therapy_goals where short_term_goal_no=?;", [voiceShortTermGoal_no],(err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+      console.log(result);
+
+    }
+  });
+});
+
+app.post("/fetchFluencyTherapyGoals", (req, res) => {
+ 
+  fluencyShortTermGoal_no=req.body.fluencyShortTermGoal_no;
+  db.query(" select distinct therapy_goal_no,therapy_goal from voice_language_therapy_goals where short_term_goal_no=?;", [fluencyShortTermGoal_no],(err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+      console.log(result);
+
+    }
+  });
+});
+
   app.post("/articulationSoundsAges", (req, res) => {
     const hospital_id=req.body.hospital_id;
     const dirthdayDate=req.body.dirthdayDate;
