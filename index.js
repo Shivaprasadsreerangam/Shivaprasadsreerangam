@@ -121,6 +121,20 @@ app.post("/playSemanticsLongTerm", (req, res) => {
   });
 });
 
+app.post("/fetchAge", (req, res) => {
+ const dob=req.body.birthday;
+
+  db.query(" SELECT patient_dob,TIMESTAMPDIFF( MONTH, ?, now() ) % 12  AS Age;",[dob], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+      console.log(result);
+     
+    }
+  });
+});
+
 app.post("/multiPragmaticInteractionLongTerm", (req, res) => {
   //const hospital_id = req.body.hospital_id;
   const patient_id = req.body.patient_id;
