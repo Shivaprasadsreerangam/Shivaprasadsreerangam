@@ -124,7 +124,7 @@ app.post("/playSemanticsLongTerm", (req, res) => {
 app.post("/fetchAge", (req, res) => {
  const dob=req.body.birthday;
 
-  db.query(" SELECT patient_dob,TIMESTAMPDIFF( MONTH, ?, now() ) % 12  AS Age;",[dob], (err, result) => {
+  db.query(" SELECT TIMESTAMPDIFF( MONTH, ?, now() ) % 12  AS Age;",[dob], (err, result) => {
     if (err) {
       console.log(err);
     } else {
